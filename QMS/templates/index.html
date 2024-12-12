@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <div class="container">
+        <a href="{{url_for('teacher_bp.login')}}" class="role-link"><img src="/static/images/teacher.png" alt="teacher" class="role-image"></a>
+    </div>
+
+    <div class="container2">
+        <a href="{{url_for('student_bp.auth')}}" class="role-link2"><img src="/static/images/student.png" alt="student" class="role-image2"></a>
+    </div>
+</body>
+</html>

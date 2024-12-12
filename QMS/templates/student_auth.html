@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Code</title>
+    <link rel="stylesheet" href="/static/css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'danger' %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <div class="cont">
+        <h1>Welcome back!</h1>
+
+        <div class="container">
+            <h2> Have a quiz? </h2>
+            <form action="{{ url_for('student_bp.auth') }}" method="POST" class="login-form">
+                <label for="student_id">Student ID:</label>
+                <input type="text" id="student_id" name="student_id" required>
+
+                <label for="quiz_code">Quiz Code:</label>
+                <input type="text" id="quiz_code" name="quiz_code" required>
+                <br>
+                <button type="submit">Enter</button>
+            </form>
+
+        </div>
+
+        <a href="{{url_for('home')}}"><h4>Go back</h4></a>
+    </div>
+
+</body>
+</html>

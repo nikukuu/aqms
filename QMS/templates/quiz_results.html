@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+</head>
+<body>
+    <h2>Results for "{{ quiz.quiz_title }}"</h2>
+    <p>Your Score: {{ score }} / {{ total }}</p>
+
+    <h3>Review Your Answers:</h3>
+    <ul>
+        {% for answer in answers %}
+            <li>
+                <strong>Question:</strong> {{ answer.question_text }} <br>
+                <strong>Your Answer:</strong> Option {{ answer.selected_option }} <br>
+                <strong>Correct Answer:</strong> Option {{ answer.correct_option }}
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('student_bp.auth') }}">Take Another Quiz</a>
+</body>
+</html>

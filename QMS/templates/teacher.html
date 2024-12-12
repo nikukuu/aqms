@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Teacher {% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/teacher.css">
+    <link rel="stylesheet" href="/static/css/t_classes.css">
+    <link rel="stylesheet" href="/static/css/manage_q.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex-wrapper">
+        <div class="wrapper">
+            <h2>Hello</h2>
+            <p>{{username}}</p>
+            <hr>
+            <h3>Section</h3>
+                <ul>
+                    {% for cls in classes %}
+                        <li>
+                            <a href="{{ url_for('teacher_bp.view_class', class_name=cls.class_name if cls.class_name else cls[0]) }}">
+                                {{ cls.class_name if cls.class_name else cls[0] }}
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>No sections created yet.</li>
+                    {% endfor %}
+                </ul>
+            <hr>
+            <h3>Account</h3>
+            <ul>
+                <li><a href="{{url_for('teacher_bp.t_acc_info')}}">Account Info</a></li>
+                <li><a href="{{url_for('teacher_bp.login')}}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

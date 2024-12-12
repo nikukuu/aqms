@@ -1,0 +1,12 @@
+{% extends "teacher.html" %}
+{% block title %} Attendance {% endblock %}
+
+{% block content %}
+<button class="btn-back" onclick="window.location.href='{{ url_for('teacher_bp.view_class', class_name=class_name) }}'">
+    <i class="ri-arrow-left-s-line"></i>
+</button>
+
+<h1>Quiz Attendance Summary</h1>
+    <p><strong>Present Students:</strong> {{ present }}</p>
+    <p><strong>Absent Students:</strong> {{ absent }}</p>
+{% endblock %}

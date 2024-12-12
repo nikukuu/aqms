@@ -1,0 +1,38 @@
+{% extends "teacher.html" %}
+{% block title %} Edit Question {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>Edit Question</h3>
+    <form method="POST">
+        <label for="question_text">Question Text:</label>
+        <textarea id="question_text" name="question_text">{{ question.question_text }}</textarea><br>
+
+        <label for="option_1">Option 1:</label>
+        <input type="text" id="option_1" name="option_1" value="{{ question.option_1 }}"><br>
+
+        <label for="option_2">Option 2:</label>
+        <input type="text" id="option_2" name="option_2" value="{{ question.option_2 }}"><br>
+
+        <label for="option_3">Option 3:</label>
+        <input type="text" id="option_3" name="option_3" value="{{ question.option_3 }}"><br>
+
+        <label for="option_4">Option 4:</label>
+        <input type="text" id="option_4" name="option_4" value="{{ question.option_4 }}"><br>
+
+        <label>Correct Option:</label>
+        <select name="correct_option" required>
+            <option value="option_1" {% if question.correct_option == 'option_1' %} selected {% endif %}>Option 1</option>
+            <option value="option_2" {% if question.correct_option == 'option_2' %} selected {% endif %}>Option 2</option>
+            <option value="option_3" {% if question.correct_option == 'option_3' %} selected {% endif %}>Option 3</option>
+            <option value="option_4" {% if question.correct_option == 'option_4' %} selected {% endif %}>Option 4</option>
+        </select>
+        <br>
+
+        <button type="submit">Update Question</button>
+        <a href="{{ url_for('teacher_bp.manage_quiz', quiz_id=question.quiz_id) }}">
+            <button type="button">Cancel</button>
+        </a>
+    </form>
+</div>
+{% endblock %}

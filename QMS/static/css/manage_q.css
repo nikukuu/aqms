@@ -1,0 +1,145 @@
+/* Back button and quiz title next to each other */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 20px;
+}
+
+.quiz-title {
+    margin: 0;
+}
+
+/* Styling for the "Back to Quizzes List" button */
+/* Back button styling with icon */
+.btn-back {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Adjust the size of the icon */
+    color: black;
+    padding: 0;
+}
+
+.btn-back:hover {
+    color: #fac345; /* Change color on hover */
+}
+
+.btn-back i {
+    font-size: 30px; /* Change the size of the arrow icon */
+}
+
+/* Form container centered */
+.form-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    border: 5px solid #FFE6A9;
+    background-color: #fff;
+    border-radius: 1rem;
+    width: 500px;
+}
+
+.form-container-wrapper h3{
+    margin: 8px;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-input {
+    padding: 8px;
+    
+    width: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit button styling */
+.btn-submit {
+    background-color: #ffd166;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #ffba49;
+}
+
+/* Display Questions */
+.questions-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.question-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+    word-wrap: break-word; /* Wrap the text to prevent overflow */
+    
+}
+
+.question-box a {
+    margin-right: 10px;
+}
+
+.question-box ul {
+    padding-left: 20px;
+}
+
+.question-box a.btn-edit {
+    background-color: #ffd166;
+    text-decoration: none;
+    color: white;
+    padding: auto;
+    margin: 0;
+    width: 50px;
+    text-align: center;
+}
+
+.question-box a.btn-edit:hover {
+    background-color: #fedb8a;
+}
+
+.question-box form button.btn-delete {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.question-box form button.btn-delete:hover {
+    background-color: #e60000;
+}
+
+.button-container {
+    display: flex; /* Aligns buttons horizontally */
+    justify-content: center;
+    gap: 10px; /* Adds space between buttons */
+    margin-top: 10px; /* Optional spacing above buttons */
+}
+
+.btn-delete:hover, .btn-edit:hover {
+    opacity: 0.9;
+}
+
+.btn-edit, .btn-delete {
+    font-size: 18px;
+    padding: 8px;
+}

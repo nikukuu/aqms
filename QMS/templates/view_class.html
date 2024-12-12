@@ -1,0 +1,41 @@
+{% extends "teacher.html" %}
+
+{% block title %} {{ class_name }} {% endblock %}
+
+{% block content %}
+<h1>Class: {{ class_name }}</h1>
+
+<!-- Form to create a quiz -->
+<form method="POST" action="">
+    <label for="quiz_title">Quiz Title:</label>
+    <input type="text" name="quiz_title" id="quiz_title" required>
+    <button type="submit">Create Quiz</button>
+</form>
+
+<!-- Quizzes Section -->
+<h3>Quizzes</h3>
+<div class="quiz-container">
+    {% for quiz in quizzes %}
+    <div class="quiz-box">
+        <!-- Delete Button in the Top-Right Corner -->
+        <form method="POST" action="{{ url_for('teacher_bp.delete_quiz', quiz_id=quiz.id) }}" class="delete-form">
+            <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this quiz? This action cannot be undone.');">
+                <i class="ri-delete-bin-line"></i>
+            </button>
+        </form>
+    
+        <!-- Quiz Details -->
+        <h3>{{ quiz.quiz_title }}</h3>
+        <p><strong>Code:</strong> {{ quiz['quiz_code'] }}</p>
+        <div class="quiz-buttons">
+            <a href="{{ url_for('teacher_bp.manage_quiz', quiz_id=quiz.id) }}" class="btn btn-primary">Edit</a>
+            <a href="{{ url_for('teacher_bp.quiz_scores', quiz_id=quiz.id) }}" class="btn btn-secondary">Scores</a>
+            <a href="{{ url_for('teacher_bp.attendance', quiz_id=quiz.id) }}" class="btn btn-success">Attendance</a>
+        </div>
+    </div>    
+    {% else %}
+        <p>No quizzes created yet.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

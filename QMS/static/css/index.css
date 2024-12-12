@@ -1,0 +1,43 @@
+body {
+    background: #fff4dc;
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.container .role-image:hover{
+    border: 3px solid #FFE6A9;
+}
+
+.container2 .role-image2:hover{
+    border: 3px solid #FFE6A9;
+}
+
+.role-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 350px;
+}
+
+.role-image2 {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 350px;
+    margin-left: 50px;
+}
+
+.role-link {
+    display: inline-block;
+}

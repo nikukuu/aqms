@@ -1,0 +1,37 @@
+{% extends "teacher.html" %}
+
+{% block title %} Quiz Scores - {{ quiz.quiz_title }} {% endblock %}
+
+{% block content %}
+<button class="btn-back" onclick="window.location.href='{{ url_for('teacher_bp.view_class', class_name=class_name) }}'">
+    <i class="ri-arrow-left-s-line"></i>
+</button>
+
+
+<h1>Scores for Quiz: {{ quiz.quiz_title }}</h1>
+
+<!-- Display the quiz scores in a table -->
+<table border="1">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Student Name</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student_id, student_data in student_scores.items() %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ student_data.first_name }} {{ student_data.last_name }}</td>
+            <td>{{ student_data.score }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">No students have completed this quiz yet.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
